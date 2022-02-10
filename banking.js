@@ -1,11 +1,13 @@
-
+// 
 function depositAndWithdraw(str) {
     const inputValue = document  // here user deposit/withdraw input
         .getElementById(str + '__input');
     const inputAmount = parseFloat(inputValue.value);
     // Input validation
     if (isNaN(inputAmount) || inputAmount <= 0) {
-        alert('Enter Valid Amount');
+        document.querySelector('.error__msg').innerText = 'Enter Valid Amount!!';
+        inputValue.value = '';
+        setTimeout('hideErr()', 3000);
     } else {
         // Deposit/Withdraw balance part
         const currentValue = document
@@ -28,6 +30,18 @@ function depositAndWithdraw(str) {
         currentTotalBalanceValue.innerText = totalBalance;  // assigning total balance after deposit/withdraw
     }
 }
+
+// function of hide error message
+function hideErr() {
+    document.querySelector('.error__msg').innerText = '';
+}
+
+
+
+
+
+
+
 
 
 
