@@ -1,12 +1,12 @@
 
 function depositAndWithdraw(str) {
-    console.log(str);
     const inputValue = document  // here user deposit/withdraw input
         .getElementById(str + '__input');
     const inputAmount = parseFloat(inputValue.value);   // converting string into integer
+    console.log(inputAmount);
     // Input validation
-    if (isNaN(inputAmount)) {
-        alert('Enter any amount');
+    if (isNaN(inputAmount) || inputAmount <= 0) {
+        alert('Enter Valid Amount');
     } else {
         // Deposit/Withdraw balance part
         const currentValue = document  // here user's current deposit/withdraw balance
@@ -24,7 +24,7 @@ function depositAndWithdraw(str) {
         if (str === 'deposit') {
             totalBalance = currentTotalBalance + inputAmount;  // sum of previous total balance & current deposit/withdraw
         } else {
-            totalBalance = currentTotalBalance - inputAmount;
+            totalBalance = currentTotalBalance - inputAmount;  // sum of previous total balance & current deposit/withdraw
         }
         currentTotalBalanceValue.innerText = totalBalance;  // assigning total balance after deposit/withdraw
     }
