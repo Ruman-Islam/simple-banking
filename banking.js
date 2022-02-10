@@ -2,29 +2,28 @@
 function depositAndWithdraw(str) {
     const inputValue = document  // here user deposit/withdraw input
         .getElementById(str + '__input');
-    const inputAmount = parseFloat(inputValue.value);   // converting string into integer
-    console.log(inputAmount);
+    const inputAmount = parseFloat(inputValue.value);
     // Input validation
     if (isNaN(inputAmount) || inputAmount <= 0) {
         alert('Enter Valid Amount');
     } else {
         // Deposit/Withdraw balance part
-        const currentValue = document  // here user's current deposit/withdraw balance
+        const currentValue = document
             .getElementById(str + '__balance');
         const currentAmount = parseFloat(currentValue.innerText);
-        const totalAmount = currentAmount + inputAmount;  // sum of previous deposit/withdraw & current deposit/withdraw
-        currentValue.innerText = totalAmount;  // assigning total deposit/withdraw to deposit/withdraw balance
+        const totalAmount = currentAmount + inputAmount;
+        currentValue.innerText = totalAmount;
         inputValue.value = '';  // reset deposit/withdraw input value
 
         // Total balance part
         const currentTotalBalanceValue = document  // current total balance amount
             .getElementById('total__balance');
-        const currentTotalBalance = parseFloat(currentTotalBalanceValue.innerText);  // converting string into integer
+        const currentTotalBalance = parseFloat(currentTotalBalanceValue.innerText);
         let totalBalance;
         if (str === 'deposit') {
-            totalBalance = currentTotalBalance + inputAmount;  // sum of previous total balance & current deposit/withdraw
+            totalBalance = currentTotalBalance + inputAmount;
         } else {
-            totalBalance = currentTotalBalance - inputAmount;  // sum of previous total balance & current deposit/withdraw
+            totalBalance = currentTotalBalance - inputAmount;
         }
         currentTotalBalanceValue.innerText = totalBalance;  // assigning total balance after deposit/withdraw
     }
