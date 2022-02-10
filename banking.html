@@ -56,14 +56,16 @@
                     <input id="deposit__input"
                         class="block mx-auto w-4/5 my-2 rounded p-3 border-2 border-neutral-400 mx-auto hover:border-blue-400"
                         type="text" placeholder="$ deposit your amount">
-                    <button id="deposit__btn" class="bg-sky-600 text-white my-2 p-2 rounded w-3/5">Deposit</button>
+                    <button onclick="depositAndWithdraw('deposit')" id="deposit__btn"
+                        class="bg-sky-600 text-white my-2 p-2 rounded w-3/5">Deposit</button>
                 </div>
                 <div class="bg-purple-200 p-8 rounded">
                     <h1 class="text-3xl font-bold">Withdraw</h1>
                     <input id="withdraw__input"
                         class="block mx-auto w-4/5 my-2 rounded p-3 border-2 border-neutral-400 mx-auto hover:border-blue-400"
                         type="text" placeholder="$ withdraw your amount">
-                    <button id="withdraw__btn" class="bg-sky-600 text-white my-2 p-2 rounded w-3/5">Withdraw</button>
+                    <button onclick="depositAndWithdraw('withdraw')" id="withdraw__btn"
+                        class="bg-sky-600 text-white my-2 p-2 rounded w-3/5">Withdraw</button>
                 </div>
             </div>
         </section>
