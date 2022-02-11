@@ -7,7 +7,7 @@ function depositAndWithdraw(str) {
     if (isNaN(inputAmount) || inputAmount <= 0) {
         document.querySelector('.error__msg').innerText = 'Enter Valid Amount!!';
         inputValue.value = '';
-        setTimeout('hideErr()', 3000);
+        setTimeout(hideErr, 3000);
     } else {
         // Deposit/Withdraw balance part
         const currentValue = document
