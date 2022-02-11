@@ -1,0 +1,16 @@
+/* .error__anime{
+    text-align: center;
+    font-size: 2rem;
+    color: red;
+    opacity: 0;
+    animation: error 5s ease-out 1;
+}
+
+@keyframes error {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+} */

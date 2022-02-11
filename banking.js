@@ -45,10 +45,6 @@ function hideErr() {
 
 
 
-
-
-
-
 // Deposit button event
 // document
 //     .getElementById('deposit__btn')
