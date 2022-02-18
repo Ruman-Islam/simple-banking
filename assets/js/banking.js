@@ -6,7 +6,7 @@ function depositAndWithdraw(str) {
     if (regEx.test(inputValue.value) || inputValue.value === '') {    // Input validation
         document.querySelector('.error__msg').innerText = 'Enter Valid Amount!!';
         inputValue.value = '';
-        setTimeout(hideErr, 3000);
+        setTimeout(hideErr, 1000);
     } else {
         const inputAmount = parseFloat(inputValue.value);  //  input value parsing
         const currentValue = document.getElementById(str + '__balance');  // current deposit/withdraw balance span tag
@@ -16,7 +16,7 @@ function depositAndWithdraw(str) {
         if (str === 'withdraw' && currentTotalBalance < inputAmount) {   // current total balance span tag inner text value is low
             document.querySelector('.error__msg').innerText = 'Balance low!!';
             inputValue.value = '';
-            setTimeout(hideErr, 3000);
+            setTimeout(hideErr, 1000);
         } else {
             const totalAmount = currentAmount + inputAmount;
             currentValue.innerText = totalAmount;
