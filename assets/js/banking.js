@@ -13,7 +13,7 @@ function depositAndWithdraw(str) {
         const currentAmount = parseFloat(currentValue.innerText);  //  current deposit/withdraw balance span tag inner text parsing
         const currentTotalBalanceValue = document.getElementById('total__balance');   // current total balance span tag
         const currentTotalBalance = parseFloat(currentTotalBalanceValue.innerText);   // current total balance span tag inner text parsing
-        if (currentTotalBalance < inputAmount) {   // current total balance span tag inner text value is low
+        if (str === 'withdraw' && currentTotalBalance < inputAmount) {   // current total balance span tag inner text value is low
             document.querySelector('.error__msg').innerText = 'Balance low!!';
             inputValue.value = '';
             setTimeout(hideErr, 3000);
