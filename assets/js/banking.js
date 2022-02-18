@@ -1,35 +1,37 @@
-// 
+
+// Calculation of deposit/withdraw
 function depositAndWithdraw(str) {
-    const inputValue = document  // here user deposit/withdraw input
-        .getElementById(str + '__input');
-    const inputAmount = parseFloat(inputValue.value);
-    // Input validation
-    if (isNaN(inputAmount) || inputAmount <= 0) {
+    const inputValue = document.getElementById(str + '__input');  // getting input value dynamically
+    const regEx = /[^0-9]/ig;
+    if (regEx.test(inputValue.value) || inputValue.value === '') {    // Input validation
         document.querySelector('.error__msg').innerText = 'Enter Valid Amount!!';
         inputValue.value = '';
         setTimeout(hideErr, 3000);
     } else {
-        // Deposit/Withdraw balance part
-        const currentValue = document
-            .getElementById(str + '__balance');
-        const currentAmount = parseFloat(currentValue.innerText);
-        const totalAmount = currentAmount + inputAmount;
-        currentValue.innerText = totalAmount;
-        inputValue.value = '';  // reset deposit/withdraw input value
-
-        // Total balance part
-        const currentTotalBalanceValue = document  // current total balance amount
-            .getElementById('total__balance');
-        const currentTotalBalance = parseFloat(currentTotalBalanceValue.innerText);
-        let totalBalance;
-        if (str === 'deposit') {
-            totalBalance = currentTotalBalance + inputAmount;
+        const inputAmount = parseFloat(inputValue.value);  //  input value parsing
+        const currentValue = document.getElementById(str + '__balance');  // current deposit/withdraw balance span tag
+        const currentAmount = parseFloat(currentValue.innerText);  //  current deposit/withdraw balance span tag inner text parsing
+        const currentTotalBalanceValue = document.getElementById('total__balance');   // current total balance span tag
+        const currentTotalBalance = parseFloat(currentTotalBalanceValue.innerText);   // current total balance span tag inner text parsing
+        if (currentTotalBalance < inputAmount) {   // current total balance span tag inner text value is low
+            document.querySelector('.error__msg').innerText = 'Balance low!!';
+            inputValue.value = '';
+            setTimeout(hideErr, 3000);
         } else {
-            totalBalance = currentTotalBalance - inputAmount;
+            const totalAmount = currentAmount + inputAmount;
+            currentValue.innerText = totalAmount;
+            inputValue.value = '';
+            let totalBalance;
+            if (str === 'deposit') {
+                totalBalance = currentTotalBalance + inputAmount;
+            } else {
+                totalBalance = currentTotalBalance - inputAmount;
+            }
+            currentTotalBalanceValue.innerText = totalBalance;  // assigning total balance after deposit/withdraw
         }
-        currentTotalBalanceValue.innerText = totalBalance;  // assigning total balance after deposit/withdraw
     }
 }
+
 
 // function of hide error message
 function hideErr() {
