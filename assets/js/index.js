@@ -11,12 +11,12 @@ function login() {
         document
             .querySelector('.error__msg').innerText =
             'Enter email & password'; // error handling
-        setTimeout('hideError()', 3000);
+        setTimeout(hideError, 1000);
     } else {
         document
             .querySelector('.error__msg').innerText =
             'Invalid email or password'; // error handling
-        setTimeout('hideError()', 3000);
+        setTimeout(hideError, 1000);
     }
 }
 
